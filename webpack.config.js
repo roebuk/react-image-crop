@@ -1,7 +1,7 @@
 /* eslint-env node */
-const path = require('path');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 function getConfig(env) {
   const config = {
@@ -15,7 +15,7 @@ function getConfig(env) {
       globalObject: 'this',
       clean: true,
     },
-    target: 'web',
+    target: ['web', 'es5'],
     externals: {
       react: {
         root: 'React',
@@ -46,10 +46,10 @@ function getConfig(env) {
       }),
       new MiniCssExtractPlugin({ filename: 'ReactCrop.css' }),
     ],
-  };
+  }
 
-  return config;
+  return config
 }
 
-module.exports = [getConfig('development'), getConfig('production')];
-module.exports.getConfig = getConfig;
+module.exports = [getConfig('development'), getConfig('production')]
+module.exports.getConfig = getConfig
